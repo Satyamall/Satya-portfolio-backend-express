@@ -7,6 +7,7 @@ const projectSchema = new mongoose.Schema({
   technologies: { type: String, required: true },
   haveLink: { type: Boolean, required: true },
   link: { type: String },
+  githublink: { type: String },
   projectImage: { type: String, required: false },
 });
 

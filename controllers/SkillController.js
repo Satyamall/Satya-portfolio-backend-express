@@ -25,6 +25,8 @@ const addSkill = async (req, res, next) => {
     _id: new mongoose.Types.ObjectId(),
     type: req.body.type,
     level: req.body.level,
+    logo: req.body.logo,
+    link: req.body.link,
   });
 
   try {
@@ -53,6 +55,8 @@ const updateSkill = async (req, res, next) => {
     {
       type: req.body.type,
       level: req.body.level,
+      logo: req.body.logo,
+      link: req.body.link,
     },
     function (err, skill) {
       if (err) {

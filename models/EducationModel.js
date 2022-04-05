@@ -7,6 +7,7 @@ const educationSchema = new mongoose.Schema({
   city: { type: String, required: true },
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
+  collegelogo: { type: String, required: true},
 });
 
 module.exports = mongoose.model("Education", educationSchema);

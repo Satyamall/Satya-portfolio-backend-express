@@ -30,6 +30,7 @@ const addExperience = async (req, res, next) => {
     endDate: req.body.endDate,
     description: req.body.description,
     technologies: req.body.technologies,
+    link: req.body.link,
   });
 
   try {
@@ -63,6 +64,7 @@ const updateExperience = async (req, res, next) => {
       endDate: req.body.endDate,
       description: req.body.description,
       technologies: req.body.technologies,
+      link: req.body.link,
     },
     function (err, experience) {
       if (err) {

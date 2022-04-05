@@ -9,6 +9,7 @@ const experienceSchema = new mongoose.Schema({
   endDate: { type: Date, required: true },
   description: { type: String, required: true },
   technologies: { type: String, required: true },
+  link: {type: String},
 });
 
 module.exports = mongoose.model("Experience", experienceSchema);

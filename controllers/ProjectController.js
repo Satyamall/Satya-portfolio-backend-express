@@ -29,6 +29,7 @@ const addProject = async (req, res, next) => {
     technologies: req.body.technologies,
     haveLink: req.body.haveLink,
     link: req.body.link,
+    githublink: req.body.githublink,
     projectImage: req.file.path,
   });
 
@@ -74,6 +75,7 @@ const updateProject = async (req, res, next) => {
       technologies: req.body.technologies,
       haveLink: req.body.haveLink,
       link: req.body.link,
+      githublink: req.body.githublink,
       projectImage: filePath,
     },
     { new: true },
