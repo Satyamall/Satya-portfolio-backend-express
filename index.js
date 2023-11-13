@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const educationRoutes = require("./routes/EducationRoutes");
 const experienceRoutes = require("./routes/ExperienceRoutes");
+const certificateRoutes = require("./routes/CertificateRoutes");
 const languageRoutes = require("./routes/LanguageRoutes");
 const projetRoutes = require("./routes/ProjetRoutes");
 const skillRoutes = require("./routes/SkillRoutes");
@@ -19,6 +20,7 @@ app.use(bodyParser.json());
 
 app.use("/educations", educationRoutes);
 app.use("/experiences", experienceRoutes);
+app.use("/certificates", certificateRoutes);
 app.use("/languages", languageRoutes);
 app.use("/projects", projetRoutes);
 app.use("/skills", skillRoutes);
