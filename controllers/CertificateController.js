@@ -1,27 +1,27 @@
-const Cerificate = require("../models/CerificateModel");
+const Certificate = require("../models/CertificateModel");
 const mongoose = require("mongoose");
 
-const getOneCerificate = async (req, res, next) => {
-  const id = req.params.cerificateId;
+const getOneCertificate = async (req, res, next) => {
+  const id = req.params.certificateId;
   try {
-    const cerificate = await Cerificate.findById(id);
-    res.status(200).json(cerificate);
+    const certificate = await Certificate.findById(id);
+    res.status(200).json(certificate);
   } catch (err) {
     res.status(500).json({ error: err });
   }
 };
 
-const getAllCerificates = async (req, res, next) => {
+const getAllCertificates = async (req, res, next) => {
   try {
-    const cerificates = await Cerificate.find({});
-    res.status(200).json(cerificates);
+    const certificates = await Certificate.find({});
+    res.status(200).json(certificates);
   } catch (err) {
     res.status(500).json({ error: err });
   }
 };
 
-const addCerificate = async (req, res, next) => {
-  const cerificate = new Cerificate({
+const addCertificate = async (req, res, next) => {
+  const certificate = new Certificate({
     _id: new mongoose.Types.ObjectId(),
     title: req.body.title,
     company: req.body.company,
@@ -34,27 +34,27 @@ const addCerificate = async (req, res, next) => {
   });
 
   try {
-    await cerificate.save();
-    res.status(201).json(cerificate);
+    await certificate.save();
+    res.status(201).json(certificate);
   } catch (err) {
     res.status(500).json({ error: err });
   }
 };
 
-const deleteCerificate = async (req, res, next) => {
-  const id = req.params.cerificateId;
+const deleteCertificate = async (req, res, next) => {
+  const id = req.params.certificateId;
   try {
-    await Cerificate.deleteOne({ _id: id });
-    res.status(200).json({ message: "Cerificate deleted successfully" });
+    await Certificate.deleteOne({ _id: id });
+    res.status(200).json({ message: "Certificate deleted successfully" });
   } catch (err) {
     res.status(500).json({ error: err });
   }
 };
 
-const updateCerificate = async (req, res, next) => {
-  const id = req.params.cerificateId;
+const updateCertificate = async (req, res, next) => {
+  const id = req.params.certificateId;
   mongoose.set('useFindAndModify', false);
-  Cerificate.findByIdAndUpdate(
+  Certificate.findByIdAndUpdate(
     id,
     {
       title: req.body.title,
@@ -66,22 +66,22 @@ const updateCerificate = async (req, res, next) => {
       technologies: req.body.technologies,
       link: req.body.link,
     },
-    function (err, cerificate) {
+    function (err, certificate) {
       if (err) {
         res.status(500).json({ error: err });
       } else {
         res
           .status(200)
-          .json({ message: "Cerificate updated successfully", cerificate });
+          .json({ message: "Certificate updated successfully", certificate });
       }
     }
   );
 };
 
 module.exports = {
-  getOneCerificate,
-  getAllCerificates,
-  addCerificate,
-  deleteCerificate,
-  updateCerificate,
+  getOneCertificate,
+  getAllCertificates,
+  addCertificate,
+  deleteCertificate,
+  updateCertificate,
 };
