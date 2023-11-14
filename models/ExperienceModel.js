@@ -6,7 +6,7 @@ const experienceSchema = new mongoose.Schema({
   company: { type: String, required: true },
   city: { type: String, required: true },
   startDate: { type: Date, required: true },
-  endDate: { type: Date, required: true },
+  endDate: { type: Date },
   description: { type: String, required: true },
   technologies: { type: String, required: true },
   link: {type: String},
